@@ -1,0 +1,13 @@
+
+apache-airflow-providers-common-sql >= 1.3.1
+apache-airflow-providers-http
+apache-airflow-providers-imap
+boa
+openai
+langchain_openai
+langchain
+transformers
+boa == 0.0.5
+oauth2 == 1.9.0.post1
+google-auth == 2.36.0 
+google-auth-oauthlib == 1.2.1 

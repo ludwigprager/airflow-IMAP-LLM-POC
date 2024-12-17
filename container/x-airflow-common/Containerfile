@@ -1,0 +1,27 @@
+#FROM apache/airflow:2.10.3
+
+#RUN pip install apache-airflow-providers-imap
+
+
+FROM apache/airflow:2.10.3
+
+USER root
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+         telnet vim less \
+  && apt-get autoremove -yqq --purge \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+USER airflow
+
+
+#RUN apt-get update && apt-get install -y telnet
+#   python-pyside \
+#   python-pip \
+#   python3-pip \
+#   python3-pyqt5
+
+
+ADD requirements.txt .
+RUN pip install apache-airflow==${AIRFLOW_VERSION} -r requirements.txt
+COPY vimrc /home/airflow/.vimrc
